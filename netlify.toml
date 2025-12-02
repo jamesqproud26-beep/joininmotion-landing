@@ -2,5 +2,8 @@
   command = "node ./scripts/write-supabase-config.js"
   publish = "."
 
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = "supabase-config.js"
+
 [context.production.environment]
 # Set SUPABASE_URL and SUPABASE_ANON_KEY in the Netlify UI (Site settings → Build & deploy → Environment)
