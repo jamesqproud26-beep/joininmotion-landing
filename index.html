@@ -65,7 +65,7 @@
         }
 
         /* Form */
-        .signup-form { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; transition: opacity 0.3s; }
+        .signup-form { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; transition: opacity 0.3s; flex-wrap: wrap; }
         
         input[type="email"] {
             background: #111111;
@@ -75,6 +75,7 @@
             font-size: 1.1rem; 
             color: #ffffff; 
             width: 340px; 
+            max-width: 100%;
             outline: none; 
             font-family: 'Inter', sans-serif;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
@@ -95,11 +96,21 @@
             cursor: pointer; 
             font-family: 'Inter', sans-serif;
             transition: background-color 0.2s;
+            white-space: nowrap;
         }
         button:disabled { opacity: 0.7; cursor: not-allowed; }
         button:hover:not(:disabled) { background-color: var(--primary-dark); }
 
         .disclaimer { font-size: 0.7rem; color: #71717a; max-width: 100%; margin: 0 auto; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            p.subtitle { font-size: 1rem; margin-bottom: 30px; }
+            .signup-form { flex-direction: column; align-items: center; gap: 15px; }
+            input[type="email"] { width: 100%; }
+            button { width: 100%; }
+        }
 
         /* Success Message State */
         .success-message {
