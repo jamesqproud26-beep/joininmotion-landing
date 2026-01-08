@@ -936,10 +936,19 @@ footer {
     .feature-row {
         gap: 2rem;
         margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
     }
 
+    /* Force text to always appear first on mobile */
     .feature-content {
         padding: 1rem 0;
+        order: 1 !important;
+        text-align: center;
+    }
+
+    .feature-visual-area {
+        order: 2 !important;
     }
 
     .feature-row-title {
@@ -949,11 +958,13 @@ footer {
 
     .feature-row-description {
         font-size: 0.9375rem;
+        max-width: 100%;
     }
 
     .feature-badge-small {
         font-size: 0.75rem;
         margin-bottom: 1rem;
+        justify-content: center;
     }
 
     .feature-visual-area {
