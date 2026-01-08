@@ -901,6 +901,11 @@ footer {
         padding: 2rem 0;
     }
 
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+    }
+
     .hero h1 {
         font-size: 2rem;
         line-height: 1.2;
@@ -912,6 +917,10 @@ footer {
 
     .hero-badge {
         font-size: 0.8125rem;
+    }
+
+    .hero .btn-lg {
+        margin: 0 auto;
     }
 
     .app-placeholder {
