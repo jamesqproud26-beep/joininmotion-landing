@@ -1,0 +1,146 @@
+:root {
+  --primary: #4fa3ff;
+  --primary-soft: #e1f0ff;
+  --primary-dark: #2574cc;
+  --text-light: #ffffff;
+  --bg-dark: #050712;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background video */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 10%, transparent 0, #000 60%);
+  opacity: 0.75;
+}
+
+/* Centered content */
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 720px;
+  z-index: 1;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  line-height: 1.1;
+}
+
+.hero-line {
+  font-weight: 600;
+}
+
+.hero-highlight {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Waitlist form */
+.waitlist-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0.25rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+}
+
+.waitlist-form input[type="email"] {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.waitlist-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.waitlist-form button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.waitlist-form button:hover {
+  background: var(--primary-dark);
+}
+
+.waitlist-form button:active {
+  transform: translateY(1px);
+}
+
+.form-message {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  min-height: 1.1em;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .waitlist-form {
+    flex-direction: column;
+    border-radius: 1rem;
+  }
+
+  .waitlist-form input,
+  .waitlist-form button {
+    width: 100%;
+    border-radius: 999px;
+  }
+}

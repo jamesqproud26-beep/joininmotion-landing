@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InMotion - Your AI-Powered Personal Trainer</title>
+    <meta name="description" content="Get personalized workouts instantly with InMotion, the AI-powered voice personal trainer that adapts to your time, goals, and constraints.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js" defer></script>
+
+    <style>
+        :root {
+            --primary: #4FA3FF;
+            --primary-soft: #E1F0FF;
+            --primary-dark: #2574CC;
+        }
+
+        /* CSS STYLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            /* Soft light gradient background */
+            background: radial-gradient(circle at 50% 0%, var(--primary-soft) 0%, #ffffff 60%);
+        }
+
+        /* Remove dark mode effects */
+        body::before, .horizon-glow, .horizon-edge { display: none; }
+
+        /* Content */
+        .container { text-align: center; max-width: 800px; padding: 0 20px; z-index: 10; }
+        
+        h1 { 
+            font-size: 4rem; 
+            line-height: 1.1; 
+            font-weight: 700; 
+            letter-spacing: -0.02em; 
+            margin-bottom: 24px; 
+            color: #000000; 
+        }
+        
+        .brand-highlight {
+            color: var(--primary);
+        }
+        
+        p.subtitle { 
+            font-size: 1.25rem; 
+            color: var(--primary); /* Requested blue color */
+            margin-bottom: 40px; 
+            font-weight: 500; 
+            line-height: 1.6; 
+        }
+
+        /* Form */
+        .signup-form { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; transition: opacity 0.3s; flex-wrap: wrap; }
+        
+        input[type="email"] {
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 50px; 
+            padding: 14px 24px; 
+            font-size: 1.1rem; 
+            color: #ffffff; 
+            width: 340px; 
+            max-width: 100%;
+            outline: none; 
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        input[type="email"]:focus { 
+            border-color: var(--primary); 
+            box-shadow: 0 0 0 3px var(--primary-soft);
+        }
+        
+        button {
+            background-color: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 50px; 
+            padding: 14px 28px; 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+        button:disabled { opacity: 0.7; cursor: not-allowed; }
+        button:hover:not(:disabled) { background-color: var(--primary-dark); }
+
+        .disclaimer { font-size: 0.7rem; color: #71717a; max-width: 100%; margin: 0 auto; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 { font-size: 3.6rem; }
+            p.subtitle { 
+                font-size: 1.1rem; 
+                font-weight: 600;
+                margin-bottom: 30px; 
+                padding: 0; 
+                line-height: 1.4;
+                max-width: 100%;
+            }
+            p.subtitle br { display: none; }
+            .signup-form { flex-direction: column; align-items: center; gap: 15px; }
+            input[type="email"] { width: 100%; text-align: center; }
+            button { width: 100%; }
+        }
+
+        /* Success Message State */
+        .success-message {
+            display: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        #form-message {
+            min-height: 24px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Stay <span class="brand-highlight">InMotion.</span><br>Anytime. Anywhere.</h1>
+        
+        <p class="subtitle">
+            InMotion is built to help you do the impossible:<br>
+            make time for fitness in your busy schedule
+        </p>
+
+        <form class="signup-form" id="waitlist-form">
+            <input type="email" id="email" placeholder="jqproud@icloud.com" required>
+            <button type="submit">Get Notified</button>
+        </form>
+
+        <div id="form-message" style="margin-top: 20px; font-size: 0.9rem;"></div>
+
+        <p class="disclaimer">
+            We will only email you to inform you of the app's launch (we get it — we hate giving away our email too)
+        </p>
+    </div>
+
+</body>
+</html>
